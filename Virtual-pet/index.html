@@ -15,17 +15,17 @@
     <div>
         <div style="position: absolute; top: 590px; left: 290px">
     <h3>Impostor's full stomach</h3>
-    <meter id="belly-meter" min="0" max="10" value="5"></meter>
-    <p id="belly-paragraph">5</p>
-    <button id="belly-button">Feed me.</button>
+    <meter id="hunger-meter" min="0" max="10" value="0"></meter>
+    <p id="hunger-paragraph">0</p>
+    <button id="hunger-button" onclick="feedpet();">Feed me.</button>
         </div>
     </div>
       
     <div style="position: absolute; top: 590px; left: 550px">
         <h3>Impostor's bloodthirst</h3>
-        <meter id="bloodthirt-meter" min="0" max="10" value="5"></meter>
-        <p id="bloodthirst-paragraph">5</p>
-        <button id="bloodthirst-button">Let me kill</button>
+        <meter id="bloodthirst-meter" min="0" max="10" value="10"></meter>
+        <p id="bloodthirst-paragraph">10</p>
+        <button id="bloodthirst-button" onclick="killpet();">Let me kill</button>
     <script src="js/pet.js"></script>
         </div>
 </body>
