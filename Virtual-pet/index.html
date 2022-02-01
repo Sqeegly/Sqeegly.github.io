@@ -7,24 +7,25 @@
     <title>Hiser's Impostor Pet</title>
 </head>
 <body style="height:500px; width:1000px; border:1px solid black;">
-<img src="images/among-us-6008615__480.png" alt= "among is character">
+<img  id="pet-img" style="height: 500px; width: 800px;" src="images/among-us-6008615__480.png" alt= "among is character">
+<p id="pet-condition">red among us</p>
     <div style="text-align:center">
         <h1>This is Impostor, they are my among us pet</h1>
         <p>Feed and keep their bloodthirst down and there wont be any problems.</p>
     </div>
     <div>
-        <div style="position: absolute; top: 590px; left: 290px">
+        <div style="position: absolute; top: 625px; left: 290px">
     <h3>Impostor's full stomach</h3>
     <meter id="hunger-meter" min="0" max="10" value="0"></meter>
-    <p id="hunger-paragraph">0</p>
+    <p id="hunger-paragraph">1</p>
     <button id="hunger-button" onclick="feedpet();">Feed me.</button>
         </div>
     </div>
       
-    <div style="position: absolute; top: 590px; left: 550px">
+    <div style="position: absolute; top: 625px; left: 550px">
         <h3>Impostor's bloodthirst</h3>
         <meter id="bloodthirst-meter" min="0" max="10" value="10"></meter>
-        <p id="bloodthirst-paragraph">10</p>
+        <p id="bloodthirst-paragraph">9</p>
         <button id="bloodthirst-button" onclick="killpet();">Let me kill</button>
     <script src="js/pet.js"></script>
         </div>

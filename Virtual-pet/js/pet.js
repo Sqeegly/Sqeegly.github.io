@@ -11,12 +11,33 @@ function feedpet() {
     refreshUI();
 }
 function refreshUI() {
+    //hunger
     let hungerMeter =document.getElementById("hunger-meter");
 hungerMeter.value = hunger;
-
 let hungerParagraph = document.getElementById("hunger-paragraph");
 hungerParagraph.innerHTML = hunger;
+//bloodthirst
+let bloodthirstMeter =document.getElementById("bloodthirst-meter");
+bloodthirstMeter.value = bloodthirst;
+
+let bloodthirstParagraph = document.getElementById("bloodthirst-paragraph");
+bloodthirstParagraph.innerHTML = bloodthirst;
+
+//image changer
+let petImg = document.getElementById("pet-img")
+let petParagraph = document.getElementById("pet-condition")
+if (bloodthirst === 10 && hunger === 0) {
+petImg.src = "images/kill.jpg";
+petParagraph.innerHTML = "Youre looking rather...sus!";
+
+} else {
+    petImg.src = "images/among-us-6008615__480.png";
+    petParagraph.innerHTML = "Im fine.";
 }
+}
+
+
+
 
 function deupPet() {
     if (hunger > 0) {
@@ -29,7 +50,7 @@ function petup() {
         if (bloodthirst < 10) {
             bloodthirst +=1
         }
-        refreshUII()
+        refreshUI()
     }
 function killpet() {
     console.log("Pet killing...");
@@ -38,18 +59,13 @@ function killpet() {
     }
     console.log("bloodthirst: " + bloodthirst);
     
-    refreshUII();
+    refreshUI();
 }
 
 
 
-function refreshUII() {
-    let bloodthirstMeter =document.getElementById("bloodthirst-meter");
-bloodthirstMeter.value = bloodthirst;
-
-let bloodthirstParagraph = document.getElementById("bloodthirst-paragraph");
-bloodthirstParagraph.innerHTML = bloodthirst;
-}
 
 let petTimer = setInterval(deupPet, 1000);
 let petLower = setInterval(petup, 1000);
+
+
