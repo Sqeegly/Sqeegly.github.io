@@ -30,7 +30,11 @@ if (bloodthirst === 10 && hunger === 0) {
 petImg.src = "images/kill.jpg";
 petParagraph.innerHTML = "Youre looking rather...sus!";
 
-} else {
+} else if (hunger <=5 && bloodthirst >= 6) {
+    petImg.src = "images/imposterhunger.jfif"
+    petParagraph.innerHTML = "Im so hungry..."
+}
+else {
     petImg.src = "images/among-us-6008615__480.png";
     petParagraph.innerHTML = "Im fine.";
 }
