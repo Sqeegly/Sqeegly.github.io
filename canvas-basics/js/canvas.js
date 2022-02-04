@@ -14,7 +14,7 @@ for (let counter = 10; counter >=1; counter--) {
 for (let counter = 1; counter <= 11; counter +=2) {
     console.log(counter);
 }
-
+/*
 // get canvas element
 let myCanvas = document.getElementById("my-canvas");
 // create canvas object
@@ -42,3 +42,10 @@ ctx.strokeStyle = "Red";
 ctx.stroke();
 
 // using a for loop, draw a bullseye
+for (let radius = 20; radius <= 20; radius -=5) {
+    ctx.beginPath();
+ctx.arc(100, 50, radius, 0, 2 * Math.PI)
+ctx.strokeStyle = "Red"
+ctx.stroke();
+}
+*/
