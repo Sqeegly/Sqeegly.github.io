@@ -14,7 +14,7 @@ for (let counter = 10; counter >=1; counter--) {
 for (let counter = 1; counter <= 11; counter +=2) {
     console.log(counter);
 }
-/*
+
 // get canvas element
 let myCanvas = document.getElementById("my-canvas");
 // create canvas object
@@ -48,4 +48,3 @@ ctx.arc(100, 50, radius, 0, 2 * Math.PI)
 ctx.strokeStyle = "Red"
 ctx.stroke();
 }
-*/
