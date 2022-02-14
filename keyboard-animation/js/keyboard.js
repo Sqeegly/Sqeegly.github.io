@@ -24,6 +24,7 @@ const BALL_RADIUS = 15;
 
 function drawPlayer() {
     ctx.fillRect(playerX, playerY, 100, 20);
+    
 }
 
 
@@ -61,8 +62,9 @@ function checkBallCollision() {
         ballXDir = ballXDir * -1;
     }
 
-    if (ballY + BALL_RADIUS >= playerY){
+    if (ballX + BALL_RADIUS >= playerX && ballX - BALL_RADIUS <= playerX + PADDLE_WIDTH && ballY + BALL_RADIUS >= playerY && ballY - BALL_RADIUS <= playerY + PADDLE_HEIGHT){
         ballYDir = ballYDir * -1;
+
     }  
 }
 
