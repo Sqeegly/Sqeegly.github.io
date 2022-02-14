@@ -12,13 +12,15 @@ let playerY = 250;
 let playerXDir = 0;
 let playerYDir = 0;
 let playerSpeed = 3;
+const PADDLE_WIDTH = 100;
+const PADDLE_HEIGHT = 20;
 
 // ball position and movement
 let ballX= 100;
 let ballY= 100;
 let ballXDir = 1.5;
 let ballYDir = 2;
-let ballRadius = 15;
+const BALL_RADIUS = 15;
 
 function drawPlayer() {
     ctx.fillRect(playerX, playerY, 100, 20);
@@ -31,9 +33,9 @@ function movePlayer() {
     //edge check
     if (playerX < 0){
 playerX = 0;
-    } else if (playerX > 500 - 100) {
+    } else if (playerX > 500 - PADDLE_WIDTH) {
 
-playerX = 500 - 100;
+playerX = 500 - PADDLE_WIDTH;
     }
     if (playerY < 0){
         playerY= 0;
@@ -43,7 +45,7 @@ playerX = 500 - 100;
 }
 function drawBall() {
     ctx.beginPath();
-     ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+     ctx.arc(ballX, ballY, BALL_RADIUS, 0, 2 * Math.PI);
     ctx.fill();
 }
 
@@ -52,12 +54,16 @@ ballY += ballYDir;
 ballX += ballXDir;
 }
 function checkBallCollision() {
-    if ((ballY > 500 - ballRadius)|| (ballY < 0 + ballRadius)){
+    if ((ballY > 500 - BALL_RADIUS)|| (ballY < 0 + BALL_RADIUS)){
         ballYDir = ballYDir * -1;
     }
-    if ((ballX > 500 - ballRadius)|| (ballX < 0 + ballRadius)){
+    if ((ballX > 500 - BALL_RADIUS)|| (ballX < 0 + BALL_RADIUS)){
         ballXDir = ballXDir * -1;
     }
+
+    if (ballY + BALL_RADIUS >= playerY){
+        ballYDir = ballYDir * -1;
+    }  
 }
 
 function refreshUI() {
