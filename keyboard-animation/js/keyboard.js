@@ -1,6 +1,7 @@
 // get canvas item
 let myCanvas = document.getElementById("my-canvas");
 let ctx = myCanvas.getContext("2d");
+let golf = document.getElementById("golf");
 
 // get paragraph items
 let keydownOutput = document.getElementById("keydown-output");
@@ -14,7 +15,9 @@ let playerYDir = 0;
 let playerSpeed = 3;
 const PADDLE_WIDTH = 100;
 const PADDLE_HEIGHT = 20;
-
+//image settings
+const IMG_HEIGHT = 40;
+const IMG_WIDTH = 40;
 // ball position and movement
 let ballX= 100;
 let ballY= 100;
@@ -49,21 +52,24 @@ function drawBall() {
      ctx.arc(ballX, ballY, BALL_RADIUS, 0, 2 * Math.PI);
     ctx.fill();
 }
+function drawImage(){
+ctx.drawImage(golf, ballX, ballY, IMG_WIDTH, IMG_HEIGHT);   
+}
 
 function moveBall(){
 ballY += ballYDir;  
 ballX += ballXDir;
 }
 function checkBallCollision() {
-    if ((ballY > 500 - BALL_RADIUS)|| (ballY < 0 + BALL_RADIUS)){
+    if ((ballY > 500 - IMG_WIDTH)|| (ballY < 0 + IMG_HEIGHT)){
         ballYDir = ballYDir * -1;
     }
-    if ((ballX > 500 - BALL_RADIUS)|| (ballX < 0 + BALL_RADIUS)){
+    if ((ballX > 500 - IMG_HEIGHT)|| (ballX < 0 + IMG_WIDTH)){
         ballXDir = ballXDir * -1;
     }
 
-    if (ballX + BALL_RADIUS >= playerX && ballX - BALL_RADIUS <= playerX + PADDLE_WIDTH && ballY + BALL_RADIUS >= playerY && ballY - BALL_RADIUS <= playerY + PADDLE_HEIGHT){
-        ballYDir = ballYDir * -1;
+    if (ballX + IMG_WIDTH >= playerX && ballX - IMG_HEIGHT <= playerX + PADDLE_WIDTH && ballY + IMG_WIDTH >= playerY && ballY - IMG_HEIGHT <= playerY + PADDLE_HEIGHT){
+        ballYDir = ballYDir * -1.01;
 
     }  
 }
@@ -75,7 +81,8 @@ function refreshUI() {
     //animate ball
     checkBallCollision();
     moveBall();
-    drawBall();
+    //drawBall();
+    drawImage();
 }
 
 // when key is pressed
