@@ -5,14 +5,22 @@ let ctx = myCanvas.getContext("2d");
 let keydownOutput = document.getElementById("keydown-output");
 let keyupOutput = document.getElementById("keyup-output");
 
-let playerX = 250;
-let playerY = 250;
+let playerX = 273;
+let playerY = 273;
 let playerXDir = 0;
 let playerYDir = 0;
 let playerSpeed = 1.5;
 
 function drawPlayer() {
     ctx.fillRect(playerX, playerY, 25, 20);
+    
+}
+function drawMaze() {
+    // X, Y, width, length 
+    ctx.fillRect(300, 200, 20, 50);
+    ctx.fillRect(250, 200, 20, 50);
+    ctx.fillRect(50, 10, 100, 20);
+    ctx.fillRect(125, 100, 20, 100);
     
 }
 
@@ -37,6 +45,8 @@ function refreshUI() {
     ctx.clearRect(0, 0, 500, 500);
     movePlayer();
     drawPlayer();
+    drawMaze();
+
 }
 function keyPressed(event) {
     // get the actual key pressed
