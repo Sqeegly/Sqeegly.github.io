@@ -5,22 +5,61 @@ let ctx = myCanvas.getContext("2d");
 let keydownOutput = document.getElementById("keydown-output");
 let keyupOutput = document.getElementById("keyup-output");
 
-let playerX = 273;
-let playerY = 273;
+let playerX = 300;
+let playerY = 145;
 let playerXDir = 0;
 let playerYDir = 0;
 let playerSpeed = 1.5;
+let playerHeight = 15;
+let playerWidth = 15;
+xPosistion = [385, 105, 105, 100]
+yPosistion = [125, 125, 105, 405]
+widths = [20, 20, 300, 300]
+heights = [300, 250, 20, 20]
+
+
+
+
+
+function drawWalls() {
+    for (let i = 0; i < xPosistion.length; i++) {
+        ctx.fillRect(xPosistion[i], yPosistion[i], widths[i], heights[i]);
+    }
+}
+function collisionCheckAll() {
+    for (let i = 0; i < xPosistion.length; i++) {
+        if (playerX + playerWidth >= xPosistion[i] && playerX <= xPosistion[i] + widths[i]) {
+            if (playerY + playerHeight >= yPosistion[i] && playerY <= yPosistion[i] + heights[i]) {
+                console.log("collision with block:" + i)
+            }
+        }
+    }
+}
+
 
 function drawPlayer() {
-    ctx.fillRect(playerX, playerY, 25, 20);
+    ctx.fillRect(playerX, playerY, 20, 15);
     
 }
 function drawMaze() {
     // X, Y, width, length 
-    ctx.fillRect(300, 200, 20, 50);
-    ctx.fillRect(250, 200, 20, 50);
-    ctx.fillRect(50, 10, 100, 20);
-    ctx.fillRect(125, 100, 20, 100);
+    ctx.fillRect(340, 105, 15, 75);
+    ctx.fillRect(150, 165, 200, 15);
+    ctx.fillRect(200, 200, 200, 15);
+    ctx.fillRect(200, 200, 15, 75);
+    ctx.fillRect(385, 125, 20, 300);
+    ctx.fillRect(105, 125, 20, 250);
+    ctx.fillRect(105, 105, 300, 20);
+    ctx.fillRect(240, 250, 15, 10);
+    ctx.fillRect(240, 235, 120, 15);
+
+    ctx.fillRect(100, 405, 300, 20);
+    ctx.fillRect(150, 240, 65, 15);
+    ctx.fillRect(110, 200, 65, 15);
+    ctx.fillRect(200, 260, 55, 15);
+    
+
+
     
 }
 
@@ -46,6 +85,8 @@ function refreshUI() {
     movePlayer();
     drawPlayer();
     drawMaze();
+  //  drawWalls();
+  //  collisionCheckAll();
 
 }
 function keyPressed(event) {
